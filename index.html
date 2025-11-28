@@ -1,1 +1,536 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H. Ayuntamiento de San Pedro y San Pablo Teposcolula</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: #f8f9fa;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(180deg, #1a472a 0%, #2d5a3d 100%);
+            padding: 50px 30px;
+            text-align: center;
+            color: white;
+            border-bottom: 5px solid #c8a961;
+        }
+
+        .logo-container {
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            width: 180px;
+            height: 180px;
+            background: white;
+            border-radius: 50%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            border: 6px solid #c8a961;
+        }
+
+        .logo-text {
+            font-size: 42px;
+            font-weight: bold;
+            color: #1a472a;
+            font-family: 'Georgia', serif;
+        }
+
+        .header h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .header .subtitle {
+            font-size: 1.3em;
+            margin-bottom: 25px;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+
+        .description {
+            font-size: 1.05em;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: justify;
+            padding: 0 20px;
+            opacity: 0.93;
+        }
+
+        /* Main Content */
+        .content {
+            padding: 70px 50px;
+            background: #ffffff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.3em;
+            color: #1a472a;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1em;
+            color: #5a6c7d;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .divider {
+            width: 120px;
+            height: 3px;
+            background: #c8a961;
+            margin: 20px auto 50px;
+        }
+
+        /* Documents Grid */
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+            margin-top: 50px;
+        }
+
+        .document-card {
+            background: #ffffff;
+            border: 2px solid #e0e6ed;
+            border-radius: 8px;
+            padding: 35px 28px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .document-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-color: #c8a961;
+        }
+
+        .document-icon {
+            width: 70px;
+            height: 70px;
+            background: #1a472a;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 22px;
+            color: white;
+            font-size: 32px;
+        }
+
+        .document-title {
+            font-size: 1.35em;
+            color: #1a472a;
+            margin-bottom: 15px;
+            font-weight: 600;
+            line-height: 1.3;
+            min-height: 60px;
+        }
+
+        .document-description {
+            color: #5a6c7d;
+            font-size: 0.98em;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            flex-grow: 1;
+            text-align: justify;
+        }
+
+        .download-button {
+            background: #1a472a;
+            color: white;
+            border: 2px solid #1a472a;
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-weight: 600;
+            font-family: 'Georgia', serif;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .download-button:hover {
+            background: white;
+            color: #1a472a;
+        }
+
+        .download-button:active {
+            transform: scale(0.98);
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a472a;
+            color: white;
+            padding: 40px 30px;
+            border-top: 5px solid #c8a961;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-title {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .footer-info {
+            font-size: 1em;
+            line-height: 1.8;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .footer-copyright {
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(200, 169, 97, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .documents-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 40px 20px;
+            }
+
+            .logo {
+                width: 140px;
+                height: 140px;
+            }
+
+            .logo-text {
+                font-size: 32px;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .header .subtitle {
+                font-size: 1.1em;
+            }
+
+            .description {
+                font-size: 1em;
+                text-align: left;
+            }
+
+            .content {
+                padding: 50px 25px;
+            }
+
+            .section-title {
+                font-size: 1.8em;
+            }
+
+            .section-subtitle {
+                font-size: 1em;
+            }
+
+            .documents-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .document-card {
+                padding: 28px 22px;
+            }
+
+            .document-title {
+                min-height: auto;
+                font-size: 1.25em;
+            }
+
+            .footer {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.5em;
+            }
+
+            .header .subtitle {
+                font-size: 1em;
+            }
+
+            .content {
+                padding: 40px 15px;
+            }
+
+            .section-title {
+                font-size: 1.5em;
+                letter-spacing: 0.5px;
+            }
+
+            .document-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+            }
+
+            .download-button {
+                padding: 12px 20px;
+                font-size: 0.95em;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .download-button {
+                display: none;
+            }
+            
+            .document-card {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo-container">
+                <div class="logo">
+                    <div class="logo-text">SPT</div>
+                </div>
+            </div>
+            <h1>Honorable Ayuntamiento</h1>
+            <p class="subtitle">San Pedro y San Pablo Teposcolula</p>
+            <p class="description">
+                El H. Ayuntamiento de San Pedro y San Pablo Teposcolula pone a disposición de la ciudadanía 
+                este portal oficial como medio de consulta y acceso a la documentación pública municipal. 
+                En cumplimiento con los principios de transparencia, rendición de cuentas y acceso a la información, 
+                aquí encontrará los documentos oficiales, normativas vigentes y acuerdos del cabildo que rigen 
+                la administración pública municipal. Este espacio tiene como finalidad fortalecer la comunicación 
+                entre gobierno y sociedad, facilitando el ejercicio democrático y la participación ciudadana informada.
+            </p>
+        </header>
+
+        <main class="content">
+            <h2 class="section-title">Documentación Oficial</h2>
+            <div class="divider"></div>
+            <p class="section-subtitle">
+                A continuación se presentan los documentos oficiales disponibles para consulta y descarga de la ciudadanía.
+            </p>
+            
+            <div class="documents-grid">
+                <article class="document-card">
+                    <div class="document-icon">📄</div>
+                    <h3 class="document-title">Plan Municipal de Desarrollo</h3>
+                    <p class="document-description">
+                        Instrumento rector de la planeación municipal que establece los objetivos, estrategias, 
+                        líneas de acción y metas para promover el desarrollo integral del municipio durante 
+                        el periodo de la administración.
+                    </p>
+                    <button class="download-button" onclick="downloadPDF('plan-desarrollo.pdf')" aria-label="Descargar Plan Municipal de Desarrollo">
+                        Descargar Documento
+                    </button>
+                </article>
+
+                <article class="document-card">
+                    <div class="document-icon">⚖️</div>
+                    <h3 class="document-title">Bando de Policía y Gobierno</h3>
+                    <p class="document-description">
+                        Ordenamiento jurídico de observancia general que regula la organización política, 
+                        administrativa y territorial del municipio, así como el funcionamiento de los servicios 
+                        públicos y la convivencia ciudadana.
+                    </p>
+                    <button class="download-button" onclick="downloadPDF('bando-policia.pdf')" aria-label="Descargar Bando de Policía y Gobierno">
+                        Descargar Documento
+                    </button>
+                </article>
+
+                <article class="document-card">
+                    <div class="document-icon">💰</div>
+                    <h3 class="document-title">Presupuesto de Egresos</h3>
+                    <p class="document-description">
+                        Documento que contiene la estimación de los gastos que habrá de realizar el municipio 
+                        durante el ejercicio fiscal, distribuido por programas, proyectos y partidas presupuestales 
+                        conforme a la normatividad aplicable.
+                    </p>
+                    <button class="download-button" onclick="downloadPDF('presupuesto-egresos.pdf')" aria-label="Descargar Presupuesto de Egresos">
+                        Descargar Documento
+                    </button>
+                </article>
+
+                <article class="document-card">
+                    <div class="document-icon">🏛️</div>
+                    <h3 class="document-title">Actas de Sesiones de Cabildo</h3>
+                    <p class="document-description">
+                        Registro oficial y pormenorizado de las sesiones del H. Ayuntamiento, donde constan 
+                        los asuntos tratados, deliberaciones realizadas y acuerdos aprobados por el órgano 
+                        de gobierno municipal.
+                    </p>
+                    <button class="download-button" onclick="downloadPDF('actas-cabildo.pdf')" aria-label="Descargar Actas de Sesiones de Cabildo">
+                        Descargar Documento
+                    </button>
+                </article>
+
+                <article class="document-card">
+                    <div class="document-icon">📊</div>
+                    <h3 class="document-title">Informe Anual de Gobierno</h3>
+                    <p class="document-description">
+                        Documento que presenta de manera detallada los resultados de la gestión municipal, 
+                        el cumplimiento de objetivos planteados, el ejercicio presupuestal y las acciones 
+                        realizadas en beneficio de la comunidad.
+                    </p>
+                    <button class="download-button" onclick="downloadPDF('informe-gobierno.pdf')" aria-label="Descargar Informe Anual de Gobierno">
+                        Descargar Documento
+                    </button>
+                </article>
+
+                <article class="document-card">
+                    <div class="document-icon">📋</div>
+                    <h3 class="document-title">Reglamentos Municipales</h3>
+                    <p class="document-description">
+                        Compendio de disposiciones administrativas que regulan diversos aspectos de la vida 
+                        municipal, incluyendo el funcionamiento interno del ayuntamiento, prestación de servicios 
+                        públicos y ordenamiento territorial.
+                    </p>
+                    <button class="download-button" onclick="downloadPDF('reglamentos.pdf')" aria-label="Descargar Reglamentos Municipales">
+                        Descargar Documento
+                    </button>
+                </article>
+
+                <article class="document-card">
+                    <div class="document-icon">📢</div>
+                    <h3 class="document-title">Convocatorias Oficiales</h3>
+                    <p class="document-description">
+                        Publicaciones mediante las cuales el ayuntamiento invita a la ciudadanía, empresas 
+                        o instituciones a participar en procesos de licitación, contratación, consulta pública 
+                        u otros procedimientos administrativos.
+                    </p>
+                    <button class="download-button" onclick="downloadPDF('convocatorias.pdf')" aria-label="Descargar Convocatorias Oficiales">
+                        Descargar Documento
+                    </button>
+                </article>
+
+                <article class="document-card">
+                    <div class="document-icon">🔍</div>
+                    <h3 class="document-title">Cuenta Pública Municipal</h3>
+                    <p class="document-description">
+                        Informe financiero que presenta el estado que guardan los ingresos y egresos 
+                        del erario municipal, así como los resultados de la gestión financiera al término 
+                        del ejercicio fiscal correspondiente.
+                    </p>
+                    <button class="download-button" onclick="downloadPDF('cuenta-publica.pdf')" aria-label="Descargar Cuenta Pública Municipal">
+                        Descargar Documento
+                    </button>
+                </article>
+
+                <article class="document-card">
+                    <div class="document-icon">🏗️</div>
+                    <h3 class="document-title">Obras Públicas</h3>
+                    <p class="document-description">
+                        Información relativa a las obras de infraestructura y equipamiento urbano realizadas 
+                        en el municipio, incluyendo programas de inversión, avances físicos y financieros, 
+                        y beneficiarios de los proyectos ejecutados.
+                    </p>
+                    <button class="download-button" onclick="downloadPDF('obras-publicas.pdf')" aria-label="Descargar Información de Obras Públicas">
+                        Descargar Documento
+                    </button>
+                </article>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <h3 class="footer-title">H. Ayuntamiento de San Pedro y San Pablo Teposcolula</h3>
+                <div class="footer-info">
+                    <p>Palacio Municipal • San Pedro y San Pablo Teposcolula, Oaxaca</p>
+                    <p>Teléfono: [Número de contacto] • Correo: [correo@teposcolula.gob.mx]</p>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2024 Gobierno Municipal de San Pedro y San Pablo Teposcolula</p>
+                    <p>Todos los derechos reservados • Hecho en México</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function downloadPDF(filename) {
+            // Configuración de la ruta donde están almacenados los archivos PDF
+            // Ajusta esta ruta según la estructura de tu repositorio
+            const pdfPath = 'documentos/' + filename;
+            
+            // Crear elemento de enlace temporal para iniciar la descarga
+            const link = document.createElement('a');
+            link.href = pdfPath;
+            link.download = filename;
+            link.setAttribute('target', '_blank');
+            
+            // Agregar el enlace al DOM, ejecutar click y remover
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Registro opcional para seguimiento
+            console.log('Descargando documento: ' + filename);
+        }
+
+        // Manejo de errores de carga de recursos
+        window.addEventListener('error', function(e) {
+            if (e.target.tagName === 'A' && e.target.href.includes('.pdf')) {
+                console.error('Error al cargar el documento PDF');
+                alert('El documento solicitado no está disponible en este momento. Por favor, contacte a la administración municipal.');
+            }
+        }, true);
+    </script>
+</body>
+</html>
